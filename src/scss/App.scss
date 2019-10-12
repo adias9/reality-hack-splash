@@ -1,7 +1,10 @@
 @import './main';
+@import './letter';
+@import './team';
 
 .App {
     min-height: 100vh;
+    background-color: #10082f;
 }
 
 .App-logo {
@@ -10,4 +13,11 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+footer.app-footer {
+    background-color: #343a40;
+    color: gray;
+    padding: 8px 0;
+    text-align: center;
 }

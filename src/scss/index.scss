@@ -21,9 +21,20 @@ $black-filter: #000000b5;
 
 body {
   margin: 0;
-  font-family: 'Ethnocentric', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin headings {
+    h1, h2, h3,
+    h4, h5, h6 {
+        @content;
+    }
+}
+
+@include headings {
+    font-family: 'Ethnocentric';
 }

@@ -1,0 +1,21 @@
+div.team {
+    background-color: $secondary-theme;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+
+    div.t-member {
+
+        & > p {
+            margin: 0;
+        }
+
+        p.name {
+            font-weight: bold;
+        }
+
+        p.role {
+
+        }
+    }
+}
