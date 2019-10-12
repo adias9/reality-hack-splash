@@ -25,8 +25,8 @@ function Team() {
             <Container>
                 <Row><h2>Organizing Team</h2></Row>
                 <Row>
-                    {teamMap.map((p) => (
-                        <Col className="t-member" xs={6} md={4}>
+                    {teamMap.map((p, key) => (
+                        <Col key={key} className="t-member" xs={6} md={4}>
                             <Image src="holder.js/171x180" roundedCircle />
                             <p className="name">{p.name}</p>
                             <p className="role">{p.role}</p>
@@ -81,7 +81,7 @@ function App() {
                 <div className="inner">
                     <header className="App-header typewriter">
                         <Logo />
-                        <p>January 20-22 MLK Weekend</p>
+                        <p>January 17-20 - MLK Weekend</p>
                         <InputGroup className="mt-3">
                             <FormControl
                                 placeholder="Email address"
