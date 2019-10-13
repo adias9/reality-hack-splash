@@ -1,21 +1,38 @@
 div.team {
     background-color: $secondary-theme;
-    min-height: 400px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
+    padding: 8rem 0;
 
-    div.t-member {
+    h2 {
+        margin-left: 2rem;
+        margin-bottom: 2rem;
+    }
 
-        & > p {
-            margin: 0;
-        }
+    div.team-rows {
+        justify-content: space-around;
+        flex-flow: row wrap;
 
-        p.name {
-            font-weight: bold;
-        }
+        div.t-member {
+            text-align: center;
+            margin: 1rem 0;
 
-        p.role {
+            & > img {
+                margin-bottom: 0.5rem;
+            }
 
+            & > p {
+                margin: 0;
+            }
+
+            p.name {
+                font-weight: bold;
+            }
+
+            p.role {
+
+            }
         }
     }
 }

@@ -14,23 +14,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import background from './img/vaporwave3-alt.png';
 import Logo from './img/LogoSVG.js';
+import defaultImg from './img/default.svg';
 
 function Team() {
     const teamMap = [
-        {name: "Andreas", role: "Tech Lead"},
-        {name: "Eswar", role: "President"}
+        {name: "Eswar", role: "Lead Organizer"},
+        {name: "Sarah Pillai", role: "Lead Organizer"},
+        {name: "Scott Greenwald", role: "Lead Organizer"},
+        {name: "Andreas", role: "Tech Lead"}
     ]
     return (
         <div id="team" className="team">
             <Container>
                 <Row><h2>Organizing Team</h2></Row>
-                <Row>
+                <Row className="team-rows">
                     {teamMap.map((p, key) => (
-                        <Col key={key} className="t-member" xs={6} md={4}>
-                            <Image src="holder.js/171x180" roundedCircle />
+                        <div key={key} className="t-member">
+                            <Image src={defaultImg} roundedCircle />
                             <p className="name">{p.name}</p>
                             <p className="role">{p.role}</p>
-                        </Col>
+                        </div>
+                        // {/*<Col key={key} className="t-member" xs={6} md={4}>
+                        //     <Image src={defaultImg} roundedCircle />
+                        //     <p className="name">{p.name}</p>
+                        //     <p className="role">{p.role}</p>
+                        // </Col>*/}
                     ))}
                 </Row>
             </Container>
@@ -89,7 +97,7 @@ function App() {
                                 aria-describedby="email-address"
                                 />
                             <InputGroup.Append>
-                                <Button>Notify Me</Button>
+                                <Button className="btn-pink">Notify Me</Button>
                             </InputGroup.Append>
                         </InputGroup>
                     </header>
