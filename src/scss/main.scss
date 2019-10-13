@@ -35,6 +35,16 @@ div.main {
             svg {
                 max-width: 80%;
             }
+
+            small {
+                color: $secondary-theme;
+                font-style: italic;
+                font-size: 12px;
+                text-align: left;
+                display: block;
+                margin-top: .25rem;
+                margin-left: .25rem;
+            }
         }
     }
 }

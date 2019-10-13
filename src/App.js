@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Button,
     Navbar,
@@ -7,7 +7,6 @@ import {
     FormControl,
     Container,
     Row,
-    Col,
     Image
 } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -34,11 +33,6 @@ function Team() {
                             <p className="name">{p.name}</p>
                             <p className="role">{p.role}</p>
                         </div>
-                        // {/*<Col key={key} className="t-member" xs={6} md={4}>
-                        //     <Image src={defaultImg} roundedCircle />
-                        //     <p className="name">{p.name}</p>
-                        //     <p className="role">{p.role}</p>
-                        // </Col>*/}
                     ))}
                 </Row>
             </Container>
@@ -81,27 +75,80 @@ function NavBar() {
     );
 }
 
+function Main() {
+    const [email, setEmail] = useState('');
+    const [showErr, setShowErr] = useState(null);
+    const [showLoad, setShowLoad] = useState(false);
+    const [showDone, setShowDone] = useState(false);
+    const enterPressed = (e) => {
+        var code = e.keyCode || e.which;
+        if (code === 13) {
+            addEmailToMailinglist();
+        }
+    }
+    const addEmailToMailinglist = () => {
+        let mailformat = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+        if (!mailformat.test(email)) {
+            setShowErr("Please enter a valid email");
+            return
+        }
+
+        setShowErr(null);
+        postEmail();
+        console.log("good email");
+    };
+
+    async function postEmail() {
+        setShowLoad(true);
+
+        setTimeout(function(){ setShowLoad(false); setShowDone(true) }, 2000);
+
+        // const res = await fetch("https://swapi.co/api/planets/4/", {
+        //     method: 'post',
+        //     body: JSON.stringify(email)
+        // });
+        //
+        // res.json()
+        //     .then(res => {setShowLoad(false); setShowDone(true);})
+        //     .catch(err => {setShowLoad(false); setShowErr(err)});
+    }
+
+    return (
+        <div className="inner">
+            <header className="App-header typewriter">
+                <Logo />
+                <p>January 17-20 - MLK Weekend</p>
+                <InputGroup className="mt-3">
+                    <FormControl
+                        type="email"
+                        placeholder="Email address"
+                        aria-label="recipent's email address"
+                        aria-describedby="email-address"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        onKeyPress={enterPressed}
+                        />
+                    <InputGroup.Append>
+                        <Button
+                            onClick={addEmailToMailinglist}
+                            className={showDone ? "btn-success" : "btn-pink"}
+                            disabled={showLoad || showDone}>
+                            {showLoad ? "Loading..." : showDone ? "Added" : "Notify Me"}
+                        </Button>
+                    </InputGroup.Append>
+                </InputGroup>
+                <small>{showErr}</small>
+            </header>
+        </div>
+    )
+}
+
 function App() {
     return (
         <div className="App">
             <div className="main" style={{backgroundImage: `url(${background})`}}>
                 <NavBar/>
-                <div className="inner">
-                    <header className="App-header typewriter">
-                        <Logo />
-                        <p>January 17-20 - MLK Weekend</p>
-                        <InputGroup className="mt-3">
-                            <FormControl
-                                placeholder="Email address"
-                                aria-label="recipent's email address"
-                                aria-describedby="email-address"
-                                />
-                            <InputGroup.Append>
-                                <Button className="btn-pink">Notify Me</Button>
-                            </InputGroup.Append>
-                        </InputGroup>
-                    </header>
-                </div>
+                <Main />
             </div>
             <Letter />
             <Team />
