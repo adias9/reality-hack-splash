@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import {
     Button,
     Navbar,
@@ -17,18 +18,28 @@ import defaultImg from './img/default.svg';
 
 function Team() {
     const teamMap = [
-        {name: "Eswar", role: "Lead Organizer"},
+        {name: "Eswar Anandapadmanaban", role: "Lead Organizer"},
         {name: "Sarah Pillai", role: "Lead Organizer"},
         {name: "Scott Greenwald", role: "Lead Organizer"},
-        {name: "Andreas", role: "Tech Lead"}
+        {name: "Maria Rice", role: "Applications & Outreach Lead"},
+
+        {name: "Brian Hui", role: "Marketing & Design Lead"},
+        {name: "Andreas Dias", role: "Technology Lead"},
+        {name: "Michael Shumikhin", role: "Sponsorships Lead"},
+        {name: "Elena Chong Loo", role: "Facilities & Venue Lead"},
+
+        {name: "Vik Parthiban", role: "Mentor Experience"},
+        {name: "Elizabeth Mezias", role: "Participant Experience"},
+        {name: "Divyanshu Varshney", role: "Outreach"}
     ]
+
     return (
         <div id="team" className="team">
             <Container>
                 <Row><h2>Organizing Team</h2></Row>
                 <Row className="team-rows">
                     {teamMap.map((p, key) => (
-                        <div key={key} className="t-member">
+                        <div key={key} className="t-member col-6 col-md-3">
                             <Image src={defaultImg} roundedCircle />
                             <p className="name">{p.name}</p>
                             <p className="role">{p.role}</p>
@@ -45,11 +56,27 @@ function Letter() {
         <Container id="letter" className="letter">
             <div className="content">
                 <h2>A Letter to the Community</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas maecenas pharetra convallis. Tincidunt dui ut ornare lectus sit amet est placerat in. Mus mauris vitae ultricies leo integer malesuada. Egestas congue quisque egestas diam. Eros in cursus turpis massa tincidunt. Facilisis magna etiam tempor orci eu lobortis elementum. Eget nullam non nisi est sit. Nec tincidunt praesent semper feugiat. Nulla porttitor massa id neque aliquam vestibulum morbi blandit. Aliquet sagittis id consectetur purus ut.</p>
+                    <p>The MIT XR Hackathon is back for 2020, and coming at you in a <b>BIG</b> way....</p>
 
-                <p>Massa tincidunt dui ut ornare lectus sit. Sed cras ornare arcu dui vivamus arcu. Egestas sed tempus urna et pharetra pharetra massa massa ultricies. Pellentesque sit amet porttitor eget dolor morbi non. Justo nec ultrices dui sapien. Commodo sed egestas egestas fringilla phasellus faucibus. Nullam vehicula ipsum a arcu. Sagittis orci a scelerisque purus semper. Diam sollicitudin tempor id eu. Erat velit scelerisque in dictum non consectetur a erat nam. Enim sit amet venenatis urna cursus eget. Adipiscing elit pellentesque habitant morbi tristique senectus et netus. Tincidunt augue interdum velit euismod in pellentesque massa placerat duis.</p>
+                    <p>Since inception, this hackathon has produced over 300 projects and helped 1,500 participants realize the potential of their dreams. Year over year we bring together close to 500 global, magnetic, and fun do-ers, to learn, create, and hack a better future.</p>
 
-                <p>Pellentesque diam volutpat commodo sed egestas egestas. Orci porta non pulvinar neque laoreet suspendisse interdum. Consectetur adipiscing elit ut aliquam. Ornare arcu odio ut sem nulla pharetra diam sit amet. Diam volutpat commodo sed egestas egestas. Odio ut sem nulla pharetra diam. Adipiscing elit ut aliquam purus sit amet. Sagittis purus sit amet volutpat consequat mauris nunc congue nisi. Sed nisi lacus sed viverra tellus. Bibendum at varius vel pharetra.</p>
+                    <p>Entering our fourth year, we have grown larger than our imaginations. Multiple startups have been founded, careers (jump) started, and collaborations skyrocketed.</p>
+
+                    <p>Last year was unreal. With energy high, and the buzz from participants to sponsors to tech leaders chatting, friending, reminiscing, and still hacking for months afterwards, it took our breath away, as we realized the magnitude and impact we had. So this year we took initiative and thought about what this event means. We're ready to bring 2020 to new heights, and continue growing the community. We're welcoming amazing partners, such as the Khronos Group to push spatial computing forwards. We're working with industry giants and the leaders to bring the latest and greatest technologies into the hands of builders and dreamers from around the globe. Lastly, we're constantly listening and iterating to bring together this diverse group of designers, developers, artists, makers, and explorers.</p>
+
+                    <p>The MIT XR Hackathon is not just an ordinary hackathon. From the workshops, to chaotic team formation, wild ideas, hands on mentorship, crazy amounts of hardware, killer partying, and more, it fosters a unique commmunity.</p>
+
+                    <p>And for 2020, we're ready! And today we're excited to relaunch and showcase our new brand to the world. With new colors, a new name, and a fresh face- we hope you can see our visions for magic making and impact creation, as we continue to push bright minds.</p>
+
+                    <p>Big thanks to our friends in the community (shout-out to <a target="_blank" href="http://www.riclebre.com/">Ric Lebre</a> (RH '19) and <a target="_blank" href="https://planecrazystudios.com/">Plane Crazy Design studio</a>, who helped create our fun and fresh 2020 rebrand, and package our venture: hack the now and build a better later. They successfully combined fun nostalgia with the future funk, to capture the essence of what it feels to be with us every January. So here we are...and we're dang excited.</p>
+
+                    <img alt="logo-designs" src="https://www.notion.so/472dca13dad845e58d60a00267f58ead#b16e6fc088694b739a79eaafdfc31840" />
+
+                    <p>Reality Hack 2020 is coming back to MIT January 16th through the 20th, hosted at the MIT Media Lab. Our team of organizers, both from <a target="_blank" href="http://vratmit.com">VR/AR@MIT</a> as well as the Reality Hack Organization are extremely excited to build this out. We hope to see you here in January, as we <i>hack-to-the-future</i>. If you're interested in collaborating with us, joining our team, sponsoring, or just shooting some ideas, feel free to send us a note at realityhack@mit.edu. Applications open very soon, so keep an eye out!</p>
+                    <br/>
+                    <p>—Reality Hack team</p>
+
+                    <p>#hack-to-the-future</p>
             </div>
         </Container>
     );
@@ -103,13 +130,26 @@ function Main() {
 
         setTimeout(function(){ setShowLoad(false); setShowDone(true) }, 2000);
 
-        // const res = await fetch("https://swapi.co/api/planets/4/", {
-        //     method: 'post',
-        //     body: JSON.stringify(email)
+        // const headers = {
+        //     'Content-Type': 'application/json',
+        //     'Authorization': 'Basic '+ Buffer(`user:${process.env.REACT_APP_MAILCHIMP_API_KEY}`).toString('base64')
+        // }
+        // const data = { members: [{ email_address: email, status: 'subscribed' }] };
+        // const res = await axios.post(`https://us20.api.mailchimp.com/3.0/lists/${process.env.REACT_APP_MAILCHIMP_LIST_ID}`, JSON.stringify(data), { headers: headers });
+        // const res = await fetch(`https://us20.api.mailchimp.com/3.0/lists/${process.env.REACT_APP_MAILCHIMP_LIST_ID}`, {
+        //     method: 'POST',
+        //     headers: new Headers({
+        //         'Access-Control-Allow-Origin': '*',
+        //         'Access-Control-Allow-Headers': 'X-Requested-With',
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json',
+        //         'Authorization': 'Basic '+ Buffer(`user:${process.env.REACT_APP_MAILCHIMP_API_KEY}`).toString('base64')
+        //     }),
+        //     body: JSON.stringify(data)
         // });
-        //
-        // res.json()
-        //     .then(res => {setShowLoad(false); setShowDone(true);})
+
+        // res.then(response => res.json())
+        //     .then(resJson => {setShowLoad(false); setShowDone(true);})
         //     .catch(err => {setShowLoad(false); setShowErr(err)});
     }
 
