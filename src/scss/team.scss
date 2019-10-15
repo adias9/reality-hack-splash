@@ -1,29 +1,24 @@
 
 
 div.team {
-  background: #00103b;
-  //background: radial-gradient(circle, rgba(17,1,13,1) 0%, rgba(44,17,69,1) 29%, rgba(50,26,64,1) 53%, rgba(39,102,115,1) 100%);
-      h2 {
+    background: #00103b;
+    //background: radial-gradient(circle, rgba(17,1,13,1) 0%, rgba(44,17,69,1) 29%, rgba(50,26,64,1) 53%, rgba(39,102,115,1) 100%);
+    h2 {
         margin-left: 2rem;
         margin-bottom: 2rem;
         margin-top: 3rem;
         color: #ffffff;
     }
 
-     color: #ffff;
-
-
-
-
-
+    color: #ffff;
 
     div.team-rows {
-      img {
-        margin: 30px;
-        border-radius: 50%;
-        box-shadow: 0px 0px 3px 2px #fbed53;
-        animation: glow 8s linear infinite alternate;
-      }
+        img {
+            margin: 30px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 3px 2px #fbed53;
+            animation: glow 8s linear infinite alternate;
+        }
 
 
         div.t-member {
@@ -53,67 +48,67 @@ div.team {
 
 // n is number of stars required
 @function multiple-box-shadow ($n) {
-  $value: '#{random(2000)}px #{random(2000)}px #FFF';
-  @for $i from 2 through $n{
-    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
-  }
+    $value: '#{random(2000)}px #{random(2000)}px #FFF';
+    @for $i from 2 through $n{
+        $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+    }
 
-  @return unquote($value);
-
+    @return unquote($value);
 }
 
 $shadows-small:  multiple-box-shadow(700);
 $shadows-medium: multiple-box-shadow(200);
 $shadows-big:    multiple-box-shadow(100);
 
-
-#stars{
-  width: 1px;
-  height: 1px;
-  background: transparent;
-  box-shadow: $shadows-small;
-  animation			: animStar 50s linear infinite;
-  &:after{
-    content: " ";
-    position: absolute;
-    top: 2000px;
+#stars {
     width: 1px;
     height: 1px;
     background: transparent;
-    box-shadow: $shadows-small;}
-  }
+    box-shadow: $shadows-small;
+    animation: animStar 50s linear infinite;
+    &:after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        background: transparent;
+        box-shadow: $shadows-small;
+    }
+}
 
-#stars2{
-  width: 2px;
-  height: 2px;
-  background: transparent;
-  box-shadow: $shadows-medium;
-  animation			: animStar 100s linear infinite;
-
-  &:after{
-    content: " ";
-    position: absolute;
-    top: 2000px;
+#stars2 {
     width: 2px;
     height: 2px;
     background: transparent;
-    box-shadow: $shadows-medium;}}
+    box-shadow: $shadows-medium;
+    animation			: animStar 100s linear infinite;
 
-#stars3{
-  width: 3px;
-  height: 3px;
-  background: transparent;
-  box-shadow: $shadows-big;
-  animation			: animStar 150s linear infinite;
+    &:after{
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: transparent;
+        box-shadow: $shadows-medium;
+    }
+}
 
-  &:after{
-    content: " ";
-    position: absolute;
-    top: 2000px;
+#stars3 {
     width: 3px;
     height: 3px;
     background: transparent;
-    box-shadow: $shadows-big;}}
+    box-shadow: $shadows-big;
+    animation: animStar 150s linear infinite;
+
+    &:after {
+        content: "";
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: transparent;
+        box-shadow: $shadows-big;
+    }
+}
 
 
 

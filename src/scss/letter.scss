@@ -1,51 +1,39 @@
-
-
 div.letter {
-  margin-right:auto;
-  margin-left: auto;
-  margin-top: 40px;
-  margin-bottom: 30px;
+    margin-right:auto;
+    margin-left: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: calc(10px + (18 - 10) * ((100vw - 300px) / (2000- 300)));
 
-
-
-  font-size: calc(10px + (18 - 10) * ((100vw - 300px) / (2000- 300)));
-
-  @media screen and (min-width: 100px) and (max-width: 900px) {
-    h2{
-      font-size: 25px;
-
+    @media screen and (min-width: 100px) and (max-width: 900px) {
+        h2 {
+            font-size: 25px;
+        }
     }
 
-  }
-
-  @media screen and (min-width: 900px) and (max-width: 1200px) {
-    h2{
-      font-size: 32px;
-
+    @media screen and (min-width: 900px) and (max-width: 1200px) {
+        h2 {
+            font-size: 32px;
+        }
     }
 
-  }
-
-  @media screen and (min-width: 1200px) and (max-width: 1800px) {
-    h2{
-      font-size: 38px;
-
+    @media screen and (min-width: 1200px) and (max-width: 1800px) {
+        h2 {
+            font-size: 38px;
+        }
     }
 
-  }
-
-  .img-fluid{
-    margin-right: 50px;
-    @media screen and (max-width: 990px) {
-
-      visibility: hidden;
-      clear: both;
-      float: left;
-      margin: 10px auto 5px 20px;
-      width: 28%;
-      display: none;
-}
-  }
+    .img-fluid {
+        margin-right: 50px;
+        @media screen and (max-width: 767px) {
+            visibility: hidden;
+            clear: both;
+            float: left;
+            margin: 10px auto 5px 20px;
+            width: 28%;
+            display: none;
+        }
+    }
 
     div.container {
         background-color: #ffffff;
@@ -53,6 +41,5 @@ div.letter {
         border-radius: 4px;
         position: relative;
         margin-top: 20px;
-
     }
 }
