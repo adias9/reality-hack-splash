@@ -15,22 +15,28 @@ import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg
 import background from './img/vaporwave3-alt.png';
 import Logo from './img/LogoSVG.js';
 import defaultImg from './img/default.svg';
+import {
+    eswar, sarah, scott,
+    maria, brian, andreas,
+    michael, elena, vik,
+    elizabeth, divyanshu
+} from './img/headshots/';
 
 function Team() {
     const teamMap = [
-        {name: "Eswar Anandapadmanaban", role: "Lead Organizer"},
-        {name: "Sarah Pillai", role: "Lead Organizer"},
-        {name: "Scott Greenwald", role: "Lead Organizer"},
-        {name: "Maria Rice", role: "Applications & Outreach Lead"},
+        {name: "Eswar Anandapadmanaban", role: "Lead Organizer", img: eswar},
+        {name: "Sarah Pillai", role: "Lead Organizer", img: sarah},
+        {name: "Scott Greenwald", role: "Lead Organizer", img: scott},
+        {name: "Maria Rice", role: "Applications & Outreach Lead", img: maria},
 
-        {name: "Brian Hui", role: "Marketing & Design Lead"},
-        {name: "Andreas Dias", role: "Technology Lead"},
-        {name: "Michael Shumikhin", role: "Sponsorships Lead"},
-        {name: "Elena Chong Loo", role: "Facilities & Venue Lead"},
+        {name: "Brian Hui", role: "Marketing & Design Lead", img: brian},
+        {name: "Andreas Dias", role: "Technology Lead", img: andreas},
+        {name: "Michael Shumikhin", role: "Sponsorships Lead", img: michael},
+        {name: "Elena Chong Loo", role: "Facilities & Venue Lead", img: elena},
 
-        {name: "Vik Parthiban", role: "Mentor Experience"},
-        {name: "Elizabeth Mezias", role: "Participant Experience"},
-        {name: "Divyanshu Varshney", role: "Outreach"}
+        {name: "Vik Parthiban", role: "Mentor Experience", img: vik},
+        {name: "Elizabeth Mezias", role: "Participant Experience", img: elizabeth},
+        {name: "Divyanshu Varshney", role: "Outreach", img: divyanshu}
     ]
 
     return (
@@ -40,7 +46,7 @@ function Team() {
                 <Row className="team-rows">
                     {teamMap.map((p, key) => (
                         <div key={key} className="t-member col-6 col-md-3">
-                            <Image src={defaultImg} roundedCircle />
+                            <Image style={{maxWidth: '180px'}} src={p.img} roundedCircle />
                             <p className="name">{p.name}</p>
                             <p className="role">{p.role}</p>
                         </div>
