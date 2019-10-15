@@ -84,7 +84,7 @@ function Letter() {
 
 function NavBar() {
     return (
-        <Navbar variant="dark">
+        <Navbar variant="dark" fixed="top">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
@@ -165,8 +165,9 @@ function Main() {
 function App() {
     return (
         <div className="App">
+            <NavBar/>
             <div className="main" style={{backgroundImage: `url(${background})`}}>
-                <NavBar/>
+
                 <Main />
             </div>
             <Letter />

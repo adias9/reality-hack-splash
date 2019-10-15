@@ -8,19 +8,20 @@
     animation: glowing 5000ms infinite;
 }
 
+nav {
+    background-color: $black-filter;
+}
+
 div.main {
     background-position: center;
     background-size: cover;
     height: 100vh;
+    padding-top: 56px;
     text-align: center;
-
-    nav {
-        background-color: $black-filter;
-    }
 
     div.inner {
         background-color: $black-filter;
-        height: calc(100% - 56px);
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: flex-start;
