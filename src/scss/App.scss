@@ -1,6 +1,7 @@
 @import './main';
 @import './letter';
 @import './team';
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
 
 
 
@@ -19,7 +20,8 @@
 }
 
 footer.app-footer {
-    background-color: #343a40;
+    background-color: #0D114B;
+    z-index:10;
     color: gray;
     padding: 8px 0;
     text-align: center;
