@@ -3,14 +3,16 @@
 div.team {
     background: #00103b;
     //background: radial-gradient(circle, rgba(17,1,13,1) 0%, rgba(44,17,69,1) 29%, rgba(50,26,64,1) 53%, rgba(39,102,115,1) 100%);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    overflow: hidden;
+
     h2 {
         margin-left: 2rem;
         margin-bottom: 2rem;
         margin-top: 3rem;
         color: #ffffff;
     }
-
-    color: #ffff;
 
     div.team-rows {
         img {
@@ -25,12 +27,22 @@ div.team {
             text-align: center;
             margin: 1rem 0;
 
-            & > img {
-                margin-bottom: 0.5rem;
-            }
+            & > a {
+                color: #FFFFFF;
+                text-decoration: none;
 
-            & > p {
-                margin: 0;
+                &:hover {
+                    color: $secondary-theme;
+                }
+
+                & > img {
+                    max-width: 180px;
+                    margin-bottom: 0.5rem;
+                }
+
+                & > p {
+                    margin: 0;
+                }
             }
 
             p.name {

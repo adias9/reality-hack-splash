@@ -15,27 +15,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import background from './img/vaporwave3-alt.png';
 import Logo from './img/LogoSVG.js';
-import defaultImg from './img/default.svg';
 import logoImg from './img/RHack-BlackTransparent-01.png'
 import logoImg2 from './img/RHack-WhiteOnBlackBG-01.png'
 import logoImg3 from './img/rhackSmall.png'
 import logoImg4 from './img/clubLog.png'
+import defaultImg from './img/default.svg';
+import {
+    eswar, sarah, scott,
+    maria, brian, andreas,
+    michael, elena, vik,
+    elizabeth, divyanshu, kealani
+} from './img/headshots/';
 
 function Team() {
     const teamMap = [
-        {name: "Eswar Anandapadmanaban", role: "Executive Team: Director"},
-        {name: "Sarah Pillai", role: "Executive Team: Chief Disruptor"},
-        {name: "Scott Greenwald", role: "Executive Team: Chairman"},
-        {name: "Maria Rice", role: "Applications & Outreach Lead"},
+        {name: "Eswar Anandapadmanaban", role: "Executive Team: Director", img: eswar, social: 'https://twitter.com/EswARVR'},
+        {name: "Sarah Pillai", role: "Executive Team: Chief Disruptor", img: sarah, social: 'https://www.instagram.com/sarahepillai/'},
+        {name: "Scott Greenwald", role: "Executive Team: Chairman", img: scott, social: ''},
+        {name: "Maria Rice", role: "Applications & Outreach Lead", img: maria, social: 'https://www.linkedin.com/in/maria-rice-8a11a19/'},
 
-        {name: "Brian Hui", role: "Marketing & Design Lead"},
-        {name: "Andreas Dias", role: "Technology Lead"},
-        {name: "Michael Shumikhin", role: "Sponsorships Lead"},
-        {name: "Elena Chong Loo", role: "Facilities & Venue Lead"},
+        {name: "Brian Hui", role: "Marketing & Design Lead", img: brian, social: 'https://twitter.com/brihui'},
+        {name: "Andreas Dias", role: "Technology Lead", img: andreas, social: 'https://twitter.com/andreasdias9'},
+        {name: "Michael Shumikhin", role: "Sponsorships Lead", img: michael, social: 'https://www.linkedin.com/in/mshumikhin/'},
+        {name: "Elena Chong Loo", role: "Facilities & Venue Lead", img: elena, social: 'https://www.instagram.com/elenakodama/'},
 
-        {name: "Vik Parthiban", role: "Mentor Experience"},
-        {name: "Elizabeth Mezias", role: "Participant Experience"},
-        {name: "Divyanshu Varshney", role: "Outreach"}
+        {name: "Vik Parthiban", role: "Mentor Experience", img: vik, social: 'https://www.linkedin.com/in/vikparthiban/'},
+        {name: "Elizabeth Mezias", role: "Participant Experience", img: elizabeth, social: 'https://www.linkedin.com/in/bethmezias/'},
+        {name: "Divyanshu Varshney", role: "Outreach", img: divyanshu, social: 'https://twitter.com/Div_Varshney'},
+        {name: "Kealani Finegan", role: "Outreach", img: kealani, social: 'https://twitter.com/kealanifinegan'}
     ]
 
     return (
@@ -48,9 +55,11 @@ function Team() {
                 <Row className="team-rows">
                     {teamMap.map((p, key) => (
                         <div key={key} className="t-member col-12 col-sm-6 col-md-3">
-                            <Image src={defaultImg} roundedCircle />
-                            <p className="name">{p.name}</p>
-                            <p className="role">{p.role}</p>
+                            <a rel="noopener noreferrer" target="_blank" href={`${p.social}`}>
+                                <Image src={p.img} roundedCircle />
+                                <p className="name">{p.name}</p>
+                                <p className="role">{p.role}</p>
+                            </a>
                         </div>
                     ))}
                 </Row>
@@ -102,7 +111,7 @@ function Letter() {
 
 function NavBar() {
     return (
-        <Navbar variant="dark">
+        <Navbar variant="dark" fixed="top">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
@@ -127,7 +136,7 @@ function Main() {
     const [showDone, setShowDone] = useState(false);
     const enterPressed = (e) => {
         var code = e.keyCode || e.which;
-        if (code === 13) {
+        if (code === 13 && !showDone) {
             addEmailToMailinglist();
         }
     }
@@ -140,35 +149,15 @@ function Main() {
 
         setShowErr(null);
         postEmail();
-        console.log("good email");
     };
 
-    async function postEmail() {
+    const postEmail = () => {
         setShowLoad(true);
 
-        setTimeout(function(){ setShowLoad(false); setShowDone(true) }, 2000);
-
-        // const headers = {
-        //     'Content-Type': 'application/json',
-        //     'Authorization': 'Basic '+ Buffer(`user:${process.env.REACT_APP_MAILCHIMP_API_KEY}`).toString('base64')
-        // }
-        // const data = { members: [{ email_address: email, status: 'subscribed' }] };
-        // const res = await axios.post(`https://us20.api.mailchimp.com/3.0/lists/${process.env.REACT_APP_MAILCHIMP_LIST_ID}`, JSON.stringify(data), { headers: headers });
-        // const res = await fetch(`https://us20.api.mailchimp.com/3.0/lists/${process.env.REACT_APP_MAILCHIMP_LIST_ID}`, {
-        //     method: 'POST',
-        //     headers: new Headers({
-        //         'Access-Control-Allow-Origin': '*',
-        //         'Access-Control-Allow-Headers': 'X-Requested-With',
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Basic '+ Buffer(`user:${process.env.REACT_APP_MAILCHIMP_API_KEY}`).toString('base64')
-        //     }),
-        //     body: JSON.stringify(data)
-        // });
-
-        // res.then(response => res.json())
-        //     .then(resJson => {setShowLoad(false); setShowDone(true);})
-        //     .catch(err => {setShowLoad(false); setShowErr(err)});
+        const data = { email: email };
+        axios.post(`/api/subscribe`, data, {baseURL: `${process.env.REACT_APP_MAILCHIMP_SERVER}`})
+            .then(res => { setShowLoad(false); setShowDone(true);})
+            .catch(err => { setShowLoad(false); setShowErr(err.message)});
     }
 
     return (
@@ -204,22 +193,26 @@ function Main() {
 function App() {
     return (
         <div className="App">
+            <NavBar/>
             <div className="main" style={{backgroundImage: `url(${background})`}}>
-                <NavBar/>
                 <Main />
             </div>
             <Letter />
             <Team />
             <footer className="app-footer">
                 <p>Presented By:</p>
-                <div>
-                    <a href = "https://vratmit.com">
-                        <img alt="logo-designs" className="img-fluid" width="300px" src={logoImg4}/>
-                    </a>
-                    <img alt="logo-designs"  className="img-fluid" width="100px" src={logoImg3}/>
-                </div>
-                <span>Copyright © 2019 RealityHack. Released under CC BY-SA.</span>
+                <Row style={{margin: '0', marginBottom: '1rem', alignItems: 'center'}}>
+                    <Col xs={12} md={{span: 3, offset: 3}}>
+                        <a href = "https://vratmit.com">
+                            <img alt="logo-designs" className="img-fluid" width="300px" src={logoImg4}/>
+                        </a>
+                    </Col>
+                    <Col xs={12} md={2}>
+                        <img alt="logo-designs"  className="img-fluid" width="100px" src={logoImg3}/>
+                    </Col>
+                </Row>
             </footer>
+            <div className="bottom"><span>Copyright © 2019 RealityHack. Released under CC BY-SA.</span></div>
         </div>
     );
 }

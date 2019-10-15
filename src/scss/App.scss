@@ -22,7 +22,21 @@
 footer.app-footer {
     background-color: #0D114B;
     z-index:10;
+    color: white;
+    padding: 16px 0;
+    text-align: center;
+
+    & > p {
+        margin: 1rem 0;
+        font-style: italic;
+        text-transform: uppercase;
+    }
+}
+
+div.bottom {
+    background-color: #343a40;
     color: gray;
+    font-size: 12px;
     padding: 8px 0;
     text-align: center;
 }

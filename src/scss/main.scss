@@ -13,26 +13,27 @@ body {
     animation: glowing 5000ms infinite;
 }
 
+nav {
+    background-color: $black-filter;
+}
+
 div.main {
-    h3{
-      font-family: 'VT323', monospace;
-      font-size: 30px;
+    h3 {
+        font-family: 'VT323', monospace;
+        font-size: 30px;
     };
     background-position: center;
     background-size: cover;
     height: 100vh;
+    padding-top: 56px;
     text-align: center;
-
-    nav {
-        background-color: $black-filter;
-    }
 
     div.inner {
         background-color: $black-filter;
-        height: calc(100% - 56px);
+        height: 100%;
         display: flex;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
 
         header.App-header {
             font-size: calc(10px + 2vmin);
