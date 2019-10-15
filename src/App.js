@@ -127,7 +127,7 @@ function Main() {
         setShowLoad(true);
 
         const data = { email: email };
-        axios.post(`${process.env.REACT_APP_MAILCHIMP_SERVER}/api/subscribe`, data)
+        axios.post(`/api/subscribe`, data, {baseURL: `${process.env.REACT_APP_MAILCHIMP_SERVER}`})
             .then(res => { console.log(res); setShowLoad(false); setShowDone(true);})
             .catch(err => { console.log(err); setShowLoad(false); setShowErr(err.message)});
     }
