@@ -1,35 +1,33 @@
-div.team {
-    background-color: $secondary-theme;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 8rem 0;
 
-    h2 {
+
+div.team {
+  background: #00103b;
+  //background: radial-gradient(circle, rgba(17,1,13,1) 0%, rgba(44,17,69,1) 29%, rgba(50,26,64,1) 53%, rgba(39,102,115,1) 100%);
+      h2 {
         margin-left: 2rem;
         margin-bottom: 2rem;
+        margin-top: 3rem;
+        color: #ffffff;
     }
+
+     color: #ffff;
+
+
+
+
+
 
     div.team-rows {
         div.t-member {
             text-align: center;
             margin: 1rem 0;
 
-            & > a {
-                color: black;
-                text-decoration: none;
+            & > img {
+                margin-bottom: 0.5rem;
+            }
 
-                &:hover {
-                    color: $primary-theme;
-                }
-
-                & > img {
-                    margin-bottom: 0.5rem;
-                }
-
-                & > p {
-                    margin: 0;
-                }
+            & > p {
+                margin: 0;
             }
 
             p.name {

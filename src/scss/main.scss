@@ -4,24 +4,28 @@
     100% { fill: #fbed5300; }
 }
 
-.glow {
-    animation: glowing 5000ms infinite;
+
+body {
+	cursor: url("https://www.sansandesign.com/wp-content/themes/sansan/images/mouse.png"), auto;
 }
 
-nav {
-    background-color: $black-filter;
+.glow {
+    animation: glowing 5000ms infinite;
 }
 
 div.main {
     background-position: center;
     background-size: cover;
     height: 100vh;
-    padding-top: 56px;
     text-align: center;
+
+    nav {
+        background-color: $black-filter;
+    }
 
     div.inner {
         background-color: $black-filter;
-        height: 100%;
+        height: calc(100% - 56px);
         display: flex;
         justify-content: center;
         align-items: flex-start;
@@ -69,3 +73,38 @@ div.main {
     from, to { border-color: transparent }
     50% { border-color: $secondary-theme; }
 }
+
+//-----------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------
+
+//-------------------------------------------------
+// Colors
+
+// WHITES, GREYS, AND BLACKS
+
+$white: #fff;
+$white-darkest: #dde3e6;
+
+$black-lightest: #485f67;
+$black-light: #222a2c;
+$black: #000;
+
+// COLORS
+
+$red: #ff5747;
+$red-darker: #cb4539;
+
+$pink: #fa55ca;
+
+$blue-lighter: #40d7ff;
+$blue-light: #00ccff;
+$blue: #16bfff;
+$blue-dark: #129acd;
+$blue-darker: #1273cd;
+
+$navy: #4f74a5;
+$navy-darker: #223d56;
+
+$green: #2bdc33;
+$green-dark: #23b32a;
