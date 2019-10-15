@@ -22,9 +22,9 @@ import logoImg4 from './img/clubLog.png'
 
 function Team() {
     const teamMap = [
-        {name: "Eswar Anandapadmanaban", role: "Lead Organizer"},
-        {name: "Sarah Pillai", role: "Lead Organizer"},
-        {name: "Scott Greenwald", role: "Lead Organizer"},
+        {name: "Eswar Anandapadmanaban", role: "Executive Team: Director"},
+        {name: "Sarah Pillai", role: "Executive Team: Chief Disruptor"},
+        {name: "Scott Greenwald", role: "Executive Team: Chairman"},
         {name: "Maria Rice", role: "Applications & Outreach Lead"},
 
         {name: "Brian Hui", role: "Marketing & Design Lead"},
@@ -85,7 +85,7 @@ function Letter() {
 
                   <p>And for 2020, we're ready! Today we're excited to relaunch and reveal our new brand to the world. With new colors, a new name, and a fresh face- we hope you can see our visions for magic making and impact creation, as we continue to push bright minds.</p>
 
-                  <p>Big thanks to our friends in the community (shout-out to <a target="_blank" href="http://www.riclebre.com/">Ric Lebre</a> and <a target="_blank" href="https://planecrazystudios.com/">Plane Crazy Design studio</a>, who helped create our fun and fresh 2020 rebrand: hack the now and build a better later.</p>
+                  <p>Big thanks to our friends in the community (shout-out to <a target="_blank" href="http://www.riclebre.com/">Ric Lebre</a> and <a target="_blank" href="http://www.thisisplanecrazy.com/">Plane Crazy Design studio</a>, who helped create our fun and fresh 2020 rebrand: hack the now and build a better later.</p>
 
 
                   <p>Reality Hack 2020 is coming back to MIT January 16th through the 20th, hosted at the MIT Media Lab. Our team of organizers, both from <a target="_blank" href="http://vratmit.com">VR/AR@MIT</a> as well as the Reality Hack Organization are extremely excited to build this out. We hope to see you here in January, as we <i>hack-to-the-future</i>. If you're interested in collaborating with us, joining our team, sponsoring, or just shooting some ideas, feel free to send us a note at realityhack@mit.edu. The application period will start very soon, so keep an eye out! We hope you're as excited as we are!</p>
