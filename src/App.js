@@ -19,24 +19,25 @@ import {
     eswar, sarah, scott,
     maria, brian, andreas,
     michael, elena, vik,
-    elizabeth, divyanshu
+    elizabeth, divyanshu, kealani
 } from './img/headshots/';
 
 function Team() {
     const teamMap = [
-        {name: "Eswar Anandapadmanaban", role: "Lead Organizer", img: eswar},
-        {name: "Sarah Pillai", role: "Lead Organizer", img: sarah},
-        {name: "Scott Greenwald", role: "Lead Organizer", img: scott},
-        {name: "Maria Rice", role: "Applications & Outreach Lead", img: maria},
+        {name: "Eswar Anandapadmanaban", role: "Lead Organizer", img: eswar, social: 'https://twitter.com/EswARVR'},
+        {name: "Sarah Pillai", role: "Lead Organizer", img: sarah, social: 'https://www.instagram.com/sarahepillai/'},
+        {name: "Scott Greenwald", role: "Lead Organizer", img: scott, social: ''},
+        {name: "Maria Rice", role: "Applications & Outreach Lead", img: maria, social: 'https://www.linkedin.com/in/maria-rice-8a11a19/'},
 
-        {name: "Brian Hui", role: "Marketing & Design Lead", img: brian},
-        {name: "Andreas Dias", role: "Technology Lead", img: andreas},
-        {name: "Michael Shumikhin", role: "Sponsorships Lead", img: michael},
-        {name: "Elena Chong Loo", role: "Facilities & Venue Lead", img: elena},
+        {name: "Brian Hui", role: "Marketing & Design Lead", img: brian, social: 'https://twitter.com/brihui'},
+        {name: "Andreas Dias", role: "Technology Lead", img: andreas, social: 'https://twitter.com/andreasdias9'},
+        {name: "Michael Shumikhin", role: "Sponsorships Lead", img: michael, social: 'https://www.linkedin.com/in/mshumikhin/'},
+        {name: "Elena Chong Loo", role: "Facilities & Venue Lead", img: elena, social: 'https://www.instagram.com/elenakodama/'},
 
-        {name: "Vik Parthiban", role: "Mentor Experience", img: vik},
-        {name: "Elizabeth Mezias", role: "Participant Experience", img: elizabeth},
-        {name: "Divyanshu Varshney", role: "Outreach", img: divyanshu}
+        {name: "Vik Parthiban", role: "Mentor Experience", img: vik, social: 'https://www.linkedin.com/in/vikparthiban/'},
+        {name: "Elizabeth Mezias", role: "Participant Experience", img: elizabeth, social: 'https://www.linkedin.com/in/bethmezias/'},
+        {name: "Divyanshu Varshney", role: "Outreach", img: divyanshu, social: 'https://twitter.com/Div_Varshney'},
+        {name: "Kealani Finegan", role: "Outreach", img: kealani, social: 'https://twitter.com/kealanifinegan'}
     ]
 
     return (
@@ -46,9 +47,11 @@ function Team() {
                 <Row className="team-rows">
                     {teamMap.map((p, key) => (
                         <div key={key} className="t-member col-6 col-md-3">
-                            <Image style={{maxWidth: '180px'}} src={p.img} roundedCircle />
-                            <p className="name">{p.name}</p>
-                            <p className="role">{p.role}</p>
+                            <a rel="noopener noreferrer" target="_blank" href={`${p.social}`}>
+                                <Image style={{maxWidth: '180px'}} src={p.img} roundedCircle />
+                                <p className="name">{p.name}</p>
+                                <p className="role">{p.role}</p>
+                            </a>
                         </div>
                     ))}
                 </Row>

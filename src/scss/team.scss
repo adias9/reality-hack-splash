@@ -15,12 +15,21 @@ div.team {
             text-align: center;
             margin: 1rem 0;
 
-            & > img {
-                margin-bottom: 0.5rem;
-            }
+            & > a {
+                color: black;
+                text-decoration: none;
 
-            & > p {
-                margin: 0;
+                &:hover {
+                    color: $primary-theme;
+                }
+
+                & > img {
+                    margin-bottom: 0.5rem;
+                }
+
+                & > p {
+                    margin: 0;
+                }
             }
 
             p.name {
