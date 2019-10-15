@@ -68,11 +68,11 @@ function Letter() {
 
                     <p>And for 2020, we're ready! And today we're excited to relaunch and showcase our new brand to the world. With new colors, a new name, and a fresh face- we hope you can see our visions for magic making and impact creation, as we continue to push bright minds.</p>
 
-                    <p>Big thanks to our friends in the community (shout-out to <a target="_blank" href="http://www.riclebre.com/">Ric Lebre</a> (RH '19) and <a target="_blank" href="https://planecrazystudios.com/">Plane Crazy Design studio</a>, who helped create our fun and fresh 2020 rebrand, and package our venture: hack the now and build a better later. They successfully combined fun nostalgia with the future funk, to capture the essence of what it feels to be with us every January. So here we are...and we're dang excited.</p>
+                    <p>Big thanks to our friends in the community (shout-out to <a target="_blank" rel="noopener noreferrer" href="http://www.riclebre.com/">Ric Lebre</a> (RH '19) and <a target="_blank" rel="noopener noreferrer" href="https://planecrazystudios.com/">Plane Crazy Design studio</a>, who helped create our fun and fresh 2020 rebrand, and package our venture: hack the now and build a better later. They successfully combined fun nostalgia with the future funk, to capture the essence of what it feels to be with us every January. So here we are...and we're dang excited.</p>
 
                     <img alt="logo-designs" src="https://www.notion.so/472dca13dad845e58d60a00267f58ead#b16e6fc088694b739a79eaafdfc31840" />
 
-                    <p>Reality Hack 2020 is coming back to MIT January 16th through the 20th, hosted at the MIT Media Lab. Our team of organizers, both from <a target="_blank" href="http://vratmit.com">VR/AR@MIT</a> as well as the Reality Hack Organization are extremely excited to build this out. We hope to see you here in January, as we <i>hack-to-the-future</i>. If you're interested in collaborating with us, joining our team, sponsoring, or just shooting some ideas, feel free to send us a note at realityhack@mit.edu. Applications open very soon, so keep an eye out!</p>
+                    <p>Reality Hack 2020 is coming back to MIT January 16th through the 20th, hosted at the MIT Media Lab. Our team of organizers, both from <a target="_blank" rel="noopener noreferrer" href="http://vratmit.com">VR/AR@MIT</a> as well as the Reality Hack Organization are extremely excited to build this out. We hope to see you here in January, as we <i>hack-to-the-future</i>. If you're interested in collaborating with us, joining our team, sponsoring, or just shooting some ideas, feel free to send us a note at realityhack@mit.edu. Applications open very soon, so keep an eye out!</p>
                     <br/>
                     <p>—Reality Hack team</p>
 
@@ -109,7 +109,7 @@ function Main() {
     const [showDone, setShowDone] = useState(false);
     const enterPressed = (e) => {
         var code = e.keyCode || e.which;
-        if (code === 13) {
+        if (code === 13 && !showDone) {
             addEmailToMailinglist();
         }
     }
@@ -122,42 +122,21 @@ function Main() {
 
         setShowErr(null);
         postEmail();
-        console.log("good email");
     };
-
-    async function postEmail() {
+    const postEmail = () => {
         setShowLoad(true);
 
-        setTimeout(function(){ setShowLoad(false); setShowDone(true) }, 2000);
-
-        // const headers = {
-        //     'Content-Type': 'application/json',
-        //     'Authorization': 'Basic '+ Buffer(`user:${process.env.REACT_APP_MAILCHIMP_API_KEY}`).toString('base64')
-        // }
-        // const data = { members: [{ email_address: email, status: 'subscribed' }] };
-        // const res = await axios.post(`https://us20.api.mailchimp.com/3.0/lists/${process.env.REACT_APP_MAILCHIMP_LIST_ID}`, JSON.stringify(data), { headers: headers });
-        // const res = await fetch(`https://us20.api.mailchimp.com/3.0/lists/${process.env.REACT_APP_MAILCHIMP_LIST_ID}`, {
-        //     method: 'POST',
-        //     headers: new Headers({
-        //         'Access-Control-Allow-Origin': '*',
-        //         'Access-Control-Allow-Headers': 'X-Requested-With',
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //         'Authorization': 'Basic '+ Buffer(`user:${process.env.REACT_APP_MAILCHIMP_API_KEY}`).toString('base64')
-        //     }),
-        //     body: JSON.stringify(data)
-        // });
-
-        // res.then(response => res.json())
-        //     .then(resJson => {setShowLoad(false); setShowDone(true);})
-        //     .catch(err => {setShowLoad(false); setShowErr(err)});
+        const data = { email: email };
+        axios.post(`http://${process.env.REACT_APP_MAILCHIMP_SERVER}/api/subscribe`, data)
+            .then(res => { console.log(res); setShowLoad(false); setShowDone(true);})
+            .catch(err => { console.log(err); setShowLoad(false); setShowErr(err.message)});
     }
 
     return (
         <div className="inner">
             <header className="App-header typewriter">
                 <Logo />
-                <p>January 17-20 - MLK Weekend</p>
+                <p>01.17.2020 - MLK Weekend</p>
                 <InputGroup className="mt-3">
                     <FormControl
                         type="email"
