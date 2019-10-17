@@ -165,7 +165,7 @@ function Main() {
         <div className="inner">
             <header className="App-header typewriter">
                 <Logo />
-                <h3>January 16-20</h3>
+                <h3>January 16-20 2020</h3>
                 <InputGroup className="mt-3">
                     <FormControl
                         type="email"
